@@ -41,6 +41,12 @@ function listEvents(request, response) {
   response.render('event.html', contextData);
 }
 
+function goToEvent(request, response, next){
+  var id = request.params.id;
+  console.log(id)
+  response.send("hello, event number " + id);
+}
+
 /**
  * Controller that renders a page for creating new events.
  */
@@ -111,5 +117,6 @@ module.exports = {
   'eventDetail': eventDetail,
   'newEvent': newEvent,
   'saveEvent': saveEvent,
-  'rsvp': rsvp
+  'rsvp': rsvp,
+  'goToEvent': goToEvent
 };
