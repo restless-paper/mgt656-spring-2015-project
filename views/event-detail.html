@@ -5,8 +5,32 @@
     <b>{{event.title}}</b>.
     <time datetime="{{event.date}}">{{event.date|prettyDate}}</time>
     {{event.attending.length}} attending so far.
+    <br>
+    Attendees:<ul>
+		{% for attendee in event.attending %}
+		<li>{{attendee}}</li>
+		{% endfor %}
+	</ul>
   </div>
-  
+
+  <form method="post">
+  	<div class="form-group" id="rsvp">
+  		<!-- <label for="exampleInputEmail1">Email address</label> -->
+		<input type="email" class="form-control" name="email" id="email" placeholder="Email">
+  	</div>
+  	<button type="submit" class="btn btn-default" id="rsvpId">RSVP</button>
+	</form>
+	  
 
 {% endblock %}
 
+<<<<<<< HEAD
+=======
+{% block footer %}
+  <footer>
+    Look at me customize the footer. The time is now {{time}}.
+    <a href="/about">About us</a>.
+  </footer>
+{% endblock %}
+
+>>>>>>> 7466c07cd303e7daf381ba33561401dae996188d

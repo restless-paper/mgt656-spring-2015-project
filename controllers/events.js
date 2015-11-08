@@ -43,7 +43,6 @@ function listEvents(request, response) {
 
 // function goToEvent(request, response, next){
 //   var id = request.params.id;
-//   console.log(id)
 //   response.send("hello, event number " + id);
 // }
 
@@ -96,7 +95,6 @@ function rsvp (request, response){
   if (ev === null) {
     response.status(404).send('No such event');
   }
-
   if(validator.isEmail(request.body.email)){
     ev.attending.push(request.body.email);
     response.redirect('/events/' + ev.id);
