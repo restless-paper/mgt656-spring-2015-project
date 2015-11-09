@@ -115,6 +115,5 @@ module.exports = {
   'eventDetail': eventDetail,
   'newEvent': newEvent,
   'saveEvent': saveEvent,
-  'rsvp': rsvp,
-  'eventDetail': eventDetail
+  'rsvp': rsvp
 };
