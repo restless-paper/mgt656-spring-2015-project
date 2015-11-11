@@ -119,7 +119,7 @@ function rsvp (request, response){
     response.status(404).send('No such event');
   }
   if(validator.isEmail(request.body.email)){
-    ev.attending.push(request.body.email);
+    ev.attending.push(validator.normalizeEmail(request.body.email));
     response.redirect('/events/' + ev.id);
   }else{
     var contextData = {errors: [], event: ev};
