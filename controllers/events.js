@@ -77,6 +77,9 @@ function saveEvent(request, response){
   if (validator.isLength(request.body.title, 5, 50) === false) {
     contextData.errors.push('Your title should be between 5 and 100 letters.');
   }
+  if (validator.isLength(request.body.location, 1, 50) === false) {
+    contextData.errors.push('Your location should be between 1 and 50 letters.');
+  }
 
 var year = checkIntRange(request, 'year', 2015, 2016, contextData);
 var month = checkIntRange(request, 'month', 0, 11, contextData);
@@ -86,9 +89,10 @@ var hour = checkIntRange(request, 'hour', 0, 23, contextData);
   if (validator.isURL(request.body.image) === false) {
     contextData.errors.push('This image is not a URL');
   }
-  if (validator.isURL(request.body.image) !== "png" || "gif") {
+  if (!validator.matches(request.body.image, /.png$/ || /.gif$/)) {
       contextData.errors.push('Your URL should be a gif or png');
-    }
+   }
+  
   
   if (contextData.errors.length === 0) {
     var newEvent = {
@@ -99,7 +103,8 @@ var hour = checkIntRange(request, 'hour', 0, 23, contextData);
       attending: []
     };
     events.all.push(newEvent);
-    response.redirect('/events');
+    var id = events.all.length;
+    response.redirect('/events/'+id.toString());
   }else{
     response.render('create-event.html', contextData);
   }
@@ -115,15 +120,16 @@ function eventDetail (request, response) {
 
 function rsvp (request, response){
   var ev = events.getById(parseInt(request.params.id));
+
   if (ev === null) {
     response.status(404).send('No such event');
   }
-  if(validator.isEmail(request.body.email)){
-    ev.attending.push(validator.normalizeEmail(request.body.email));
+  if(validator.isEmail(request.body.email)  && validator.matches(request.body.email, /@yale.edu$/i )){
+    ev.attending.push(request.body.email);
     response.redirect('/events/' + ev.id);
   }else{
     var contextData = {errors: [], event: ev};
-    contextData.errors.push('Invalid email');
+    contextData.errors.push('Invalid email: Must be valid email, ending in yale.edu');
     response.render('event-detail.html', contextData);    
   }
 

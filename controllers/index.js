@@ -14,7 +14,7 @@ function index (request, response) {
   };
   for(var i=0; i < events.all.length; i++){
     var event = events.all[i];
-    if(event.date < now){
+    if(event.date > now){
        contextData.events.push(event);  
     }
   }
