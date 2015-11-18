@@ -89,13 +89,15 @@ var hour = checkIntRange(request, 'hour', 0, 23, contextData);
   if (validator.isURL(request.body.image) === false) {
     contextData.errors.push('This image is not a URL');
   }
-  if (!validator.matches(request.body.image, /.png$/ || /.gif$/)) {
+  if (!validator.matches(request.body.image, /.png$/) && !validator.matches(request.body.image,/.gif$/)) {
       contextData.errors.push('Your URL should be a gif or png');
    }
   
   
   if (contextData.errors.length === 0) {
+	var id = events.all.length;
     var newEvent = {
+      id: id,
       title: request.body.title,
       location: request.body.location,
       image: request.body.image,
@@ -103,7 +105,8 @@ var hour = checkIntRange(request, 'hour', 0, 23, contextData);
       attending: []
     };
     events.all.push(newEvent);
-    var id = events.all.length;
+    
+    //console.log(newEvent);
     response.redirect('/events/'+id.toString());
   }else{
     response.render('create-event.html', contextData);
