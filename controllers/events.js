@@ -81,32 +81,36 @@ function saveEvent(request, response){
     contextData.errors.push('Your location should be between 1 and 50 letters.');
   }
 
-var year = checkIntRange(request, 'year', 2015, 2016, contextData);
-var month = checkIntRange(request, 'month', 0, 11, contextData);
-var day = checkIntRange(request, 'day', 1, 31, contextData);
-var hour = checkIntRange(request, 'hour', 0, 23, contextData);
+  var year = checkIntRange(request, 'year', 2015, 2016, contextData);
+  var month = checkIntRange(request, 'month', 1, 12, contextData);
+  var day = checkIntRange(request, 'day', 1, 31, contextData);
+  var hour = checkIntRange(request, 'hour', 0, 23, contextData);
+  var minutes = checkIntRange(request, 'hour', 0, 59, contextData);
 
   if (validator.isURL(request.body.image) === false) {
     contextData.errors.push('This image is not a URL');
   }
   if (!validator.matches(request.body.image, /.png$/) && !validator.matches(request.body.image,/.gif$/)) {
       contextData.errors.push('Your URL should be a gif or png');
-   }
+  }
   
   
   if (contextData.errors.length === 0) {
-	var id = events.all.length;
+	var id = events.all[events.all.length-1].id + 1;
+	// var id = events.all.length;
+	
+	
     var newEvent = {
       id: id,
       title: request.body.title,
       location: request.body.location,
       image: request.body.image,
-      date: new Date(),
+      date: new Date(year, month, day, hour, minutes),
       attending: []
     };
     events.all.push(newEvent);
     
-    //console.log(newEvent);
+    // console.log(events);
     response.redirect('/events/'+id.toString());
   }else{
     response.render('create-event.html', contextData);
