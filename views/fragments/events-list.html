@@ -1,3 +1,4 @@
+
 <ul>
   {% for event in events %}
     <li class="event" id="event-{{event.id}}">
@@ -8,29 +9,27 @@
   {% endfor %}
 </ul>
 
-
-
 <script src="//www.google-analytics.com/cx/api.js?experiment=YFOzA6hsTZWFEwb_zJ5eKQ"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 
 
-<script>
+<script type= text/javascript>
 // Define JavaScript for each page variation of this experiment.
-var pageVariations = [
-  function() {},  // Original: Do nothing. This will render the default HTML.
-  function() {    // Variation 1: add RSVP text
-    $( 'a' ).prepend( 'RSVP ' );
-  }
-];
+	console.log("IN THE SCRIPT");
+	var pageVariations = [
+		function() {},  // Original: Do nothing. This will render the default HTML.
+		function() {    // Variation 1: add RSVP text
+			$( 'li.event' ).prepend( 'RSVP ' );
+		}
+	];
 
 // Wait for the DOM to load, then execute the view for the chosen variation.
-$(document).ready(function(){
-  // Ask Google Analytics which variation to show the user.
-  var chosenVariation = cxApi.chooseVariation(YFOzA6hsTZWFEwb_zJ5eKQ);
+	$(document).ready(function(){
+	// Ask Google Analytics which variation to show the user.
+		var chosenVariation = cxApi.chooseVariation(YFOzA6hsTZWFEwb_zJ5eKQ);
 
-  // Execute the chosen view
-  console.log(chosenVariation);
-  pageVariations[chosenVariation % 2]();
-}
-);
+		// Execute the chosen view
+		console.log(chosenVariation);
+		pageVariations[1];
+	});
 </script>
