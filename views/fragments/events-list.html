@@ -15,11 +15,11 @@
 
 <script type= text/javascript>
 // Define JavaScript for each page variation of this experiment.
-	console.log("IN THE SCRIPT");
+	//console.log("IN THE SCRIPT");
 	var pageVariations = [
 		function() {},  // Original: Do nothing. This will render the default HTML.
 		function() {    // Variation 1: add RSVP text
-			$( 'li.event' ).prepend( 'RSVP ' );
+			$( ".event-title" ).prepend( 'RSVP ' );
 		}
 	];
 
@@ -29,7 +29,7 @@
 		var chosenVariation = cxApi.chooseVariation(YFOzA6hsTZWFEwb_zJ5eKQ);
 
 		// Execute the chosen view
-		console.log(chosenVariation);
-		pageVariations[1];
+		//console.log(chosenVariation);
+		pageVariations[chosenVariation];
 	});
 </script>
