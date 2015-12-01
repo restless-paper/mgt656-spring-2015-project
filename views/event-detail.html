@@ -1,5 +1,9 @@
 {% extends "layout.html" %}
 
+
+
+
+
 {% block mainContent %}
   <div>
     <h1 id='title'>{{event.title}}</h1>.
@@ -7,12 +11,30 @@
     <span id='location'>{{event.location}}</span>
     <img id='image' src='{{event.image}}'>
     <br>
+    <a class="donation" onclick='donate()'>donate</a>
+    <br>
     Attendees:<ul id='attendees'>
 		{% for attendee in event.attending %}
 		<li>{{attendee}}</li>
 		{% endfor %}
 	</ul>
   </div>
+
+
+    
+	<script src="//www.google-analytics.com/cx/api.js?experiment=YZHKuf2nQbqALWZvbKUVtw"></script>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script>
+		var donate = function() {
+			ga('send', {
+				hitType: 'event',
+				eventCategory: 'Donation',
+				eventAction: 'clicked',
+			});
+		}
+	</script>
+	<script type="text/javascript" src="/js/DonateVariations.js"></script>
 
 
   {% if errors %}
@@ -32,7 +54,9 @@
 		<input type="email" class="form-control" name="email" id="email" placeholder="Email">
   	</div>
   	<button type="Submit" class="btn btn-default" id="Submit">Submit</button>
-	</form>
+  </form>
 	  
+	
 
 {% endblock %}
+
