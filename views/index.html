@@ -1,60 +1,77 @@
 {% extends "layout.html" %}
 
 {% block header %}
-  <header>
-    <h1>{{ title }} FTW</h1>
-    <style>
-    header {
-      text-align: center;
-      background: url('http://i.imgur.com/hmDLI3y.jpg');
-      background-size: cover;
-      color: white;
-    }
-    a {
-      color: blue;
-    }
-    p {
-      color: black;
-    }
-    h1 {
-      font-size: 70px;
-    }
-    img {
-      margin: 40px 0px 0px 0px;
-      border: 7px solid white;
-      border-radius: 20px;
-    }
-    ul {
-      padding: 10px;
-      background: rgba(0,0,0,0.5);
-    }
-    li {
-      display: inline;
-      padding: 0px 10px 0px 10px;
-    }
-    article {
-        max-width: 500px;
-        padding: 20px;
-        margin: 0 auto;
-    }
-  </style>
-  </header>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 tags have to be first -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/about">{{title}} {{tagline}}</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" placeholder="Register For Updates!" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Go Baby Go</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Welcome to Restless Events</h1>
+        <p>This is some text to show where we would talk about getting some kickass events going</p>
+        <p><a class="btn btn-primary btn-lg" href="/events/new" role="button">Oh hell yea create me some events son&raquo;</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>About Us</h2>
+          <p>Learn About the Team!! </p>
+          <p><a class="btn btn-default" href="/about" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>List of Events</h2>
+          <p>Click here to see a list of events</p>
+          <p><a class="btn btn-default" href="/events" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>Another Button</h2>
+          <p>Because we'll probably need it and things look better in threes</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
+
+      <hr>
+
+    </div> <!-- /container --
+
+
+  </body>
+</html>
 {% endblock %}
 
-{% block mainContent %}
-  <p>
-    Welcome to {{ title }}. {{tagline}}
-  </p>
-  <p>Upcoming Events!</p>
-  <div>
-    {% include "fragments/events-list.html" %}
-  </div>
-  <img id="logo" src="http://i.imgur.com/VLK09v1.png">
-  <p>
-    Check out the <a href="/about">About us</a> page
-    as well as the <a href="/events">Events</a> page.
-  </p>
-  <p>
-    <a id="new" href="/events/new">Create a new event</a>
-  </p>
-{% endblock %}
+

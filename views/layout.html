@@ -6,21 +6,21 @@
     <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' />
   </head>
 
-	<body class="container">
+	
+  {% block header %}
 
-    {% block header %}
-      <header>Restless Paper</header>
-    {% endblock %}
+  {% endblock %}
 
-    {% block mainContent %}
-      <section>Welcome to {{ title }}. {{tagline}}</section>
-    {% endblock %}
+  {% block mainContent %}
 
-    {% block footer %}
-      <footer> 
-      <a href="/">Home</a> &gt; <a href="/about">About Us</a> 
-      </footer>
-    {% endblock %}
+  {% endblock %}
+
+  {% block footer %}
+    <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+      <p>&copy; Freaking Awesome Company, Inc. &middot; <a href="/">Home</a> &middot; <a href="/about">About Us</a></p>
+    </footer>
+  {% endblock %}
 
   </body>
 </html>
