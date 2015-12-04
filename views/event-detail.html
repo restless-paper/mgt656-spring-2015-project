@@ -11,7 +11,7 @@
     <span id='location'>{{event.location}}</span>
     <img id='image' src='{{event.image}}'>
     <br>
-    <a class="donation" onclick='donate()'>donate</a>
+    <a class="donation" onclick='donate()' href='../donation/{{event.id}}'>donate</a>
     <br>
     Attendees:<ul id='attendees'>
 		{% for attendee in event.attending %}

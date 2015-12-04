@@ -25,6 +25,7 @@ app.get('/api/events', eventControllers.api);
 app.post('/events/new', eventControllers.saveEvent);
 app.get('/events/:id', eventControllers.eventDetail);
 app.post('/events/:id', eventControllers.rsvp);
+app.get('/donation/:id', eventControllers.donate);
 
 
 
