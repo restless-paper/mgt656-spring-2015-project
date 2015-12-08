@@ -1,5 +1,6 @@
 body {
-  padding: 50px;
+
+  padding-top: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -16,4 +17,73 @@ footer{
   padding: 1em;
   border: 1px solid #ddd;
   margin: 2em 0;
+}
+
+.jumbotron {
+
+background-image: url("https://static.pexels.com/photos/678/lights-festival-party-dancing.jpg");
+background-size: cover;
+width : 100%;
+
+}
+
+.push-spaces
+{
+    height: 700px;
+}
+.white 
+{
+	color: white;
+}
+.jumbotron h1 
+{
+	color:white;
+	text-align: right;
+}
+.jumbotron p
+{
+	text-align: right;
+}
+.jumbotron h2
+{
+	text-align: center;
+	padding-top: 410px;
+}
+
+container { width: 100% }
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html, body {
+	height: 100%;
+}
+
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+.btn.outline {
+    background: none;
+    padding: 12px 22px;
+}
+
+.btn-primary.outline {
+	border: 2px solid white;
+	color: white;
+}
+
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+	color: ##0e1010;
+	border-color: ##0e1010;
+}
+.btn-primary.outline:active, .btn-primary.outline.active {
+	border-color: ##0e1010;
+	color: ##0e1010;
+	box-shadow: none;
 }
