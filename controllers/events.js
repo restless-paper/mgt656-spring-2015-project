@@ -83,20 +83,31 @@ return value;
  * our global list of events.
  */
 function saveEvent(request, response){
-  var contextData = {errors: []};
+  var contextData = {errors: [],months:['January',
+                              'February',
+                              'March',
+                              'April',
+                              'May',
+                              'June',
+                              'July',
+                              'August',
+                              'September',
+                              'October',
+                              'November',
+                              'December']};
 
-  if (validator.isLength(request.body.title, 5, 50) === false) {
-    contextData.errors.push('Your title should be between 5 and 100 letters.');
+  if (validator.isLength(request.body.title, 1, 49) === false) {
+    contextData.errors.push('Your title should be greater than 0 and less than 50 letters.');
   }
-  if (validator.isLength(request.body.location, 1, 50) === false) {
-    contextData.errors.push('Your location should be between 1 and 50 letters.');
+  if (validator.isLength(request.body.location, 1, 49) === false) {
+    contextData.errors.push('Your location should be between greater than 0 and less than 50 letters.');
   }
 
   var year = checkIntRange(request, 'year', 2015, 2016, contextData);
-  var month = checkIntRange(request, 'month', 1, 11, contextData);
+  var month = checkIntRange(request, 'month', 0, 11, contextData);
   var day = checkIntRange(request, 'day', 1, 31, contextData);
   var hour = checkIntRange(request, 'hour', 0, 23, contextData);
-  var minutes = checkIntRange(request, 'hour', 0, 59, contextData);
+  var minute = checkIntRange(request, 'minute', 0, 59, contextData);
 
   if (validator.isURL(request.body.image) === false) {
     contextData.errors.push('This image is not a URL');
@@ -104,19 +115,21 @@ function saveEvent(request, response){
   if (!validator.matches(request.body.image, /.png$/) && !validator.matches(request.body.image,/.gif$/)) {
       contextData.errors.push('Your URL should be a gif or png');
   }
+   if (!validator.matches(request.body.image, /^https:\/{2}/) && !validator.matches(request.body.image,/^http:\/{2}/ ) ) {
+      contextData.errors.push('Your URL should begin with http:// or https://');
+  }
   
   
   if (contextData.errors.length === 0) {
 	var id = events.all[events.all.length-1].id + 1;
 	// var id = events.all.length;
 	
-	
     var newEvent = {
       id: id,
       title: request.body.title,
       location: request.body.location,
       image: request.body.image,
-      date: new Date(year, month, day, hour, minutes),
+      date: new Date(year, month, day, hour, minute),
       attending: []
     };
     events.all.push(newEvent);

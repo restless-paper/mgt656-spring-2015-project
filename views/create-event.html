@@ -2,6 +2,7 @@
 
 {% block mainContent %}
 <div class="eventcreatebg">
+<div class='pad'>
   {% if errors %}
     <div>
       <p>Please correct the following errors!</p>
@@ -59,6 +60,7 @@
  		<option value='0'>0</option>
  		<option value='30'>30</option>
  	</select>  
+
   
     <input type="submit" id="submit">
     
@@ -66,6 +68,14 @@
 </div>
 </div>
 
+=======
+    <br>
+    <input type="submit" id="submit" class='btn btn-default'>
+    
+  </form>
+  
+
+</div>
 {% endblock %}
 
 

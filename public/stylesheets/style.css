@@ -110,3 +110,20 @@ html, body {
 	color: ##0e1010;
 	box-shadow: none;
 }
+
+.nav{
+	padding: 0px;
+	color: white;
+}
+
+.pad{
+	padding: 50px;
+}
+
+.don{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.txt{
+	padding-bottom: 10px;
+}

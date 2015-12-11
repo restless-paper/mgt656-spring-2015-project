@@ -5,20 +5,23 @@
 
 
 {% block mainContent %}
-  <div>
-    <h1 id='title'>{{event.title}}</h1>.
-    <span id='date'><time datetime="{{event.date}}">{{event.date|prettyDate}}</time></span>
+  <div class='pad'>
+  <img id='image' src='{{event.image}}' height='300px'>
+    <h1 id='title'>{{event.title}}</h1>
+    <span id='date'><time datetime="{{event.date}}">{{event.date|prettyDate}}</time></span><br>
     <span id='location'>{{event.location}}</span>
-    <img id='image' src='{{event.image}}'>
-    <br>
-    <a class="donation" onclick='donate()' href='../donation/{{event.id}}'>donate</a>
-    <br>
+
+
+    <div class='don'>
+    <a class="btn btn-primary donation" onclick='donate()' href='../donation/{{event.id}}'>donate</a>
+    </div>
     Attendees:<ul id='attendees'>
 		{% for attendee in event.attending %}
 		<li>{{attendee}}</li>
 		{% endfor %}
 	</ul>
-  </div>
+    <div class='txt'>To attend, please kindly RSVP here</div>
+  
 
 
     
@@ -50,7 +53,7 @@
     </div>
   {% endif %}
 
-  <form method="post">
+  <form method="POST">
   	<div class="form-group" id="rsvp">
   		<!-- <label for="exampleInputEmail1">Email address</label> -->
 		<input type="email" class="form-control" name="email" id="email" placeholder="Email">
@@ -58,7 +61,7 @@
   	<button type="Submit" class="btn btn-default" id="Submit">Submit</button>
   </form>
 	  
-	
+	</div>
 
 {% endblock %}
 
