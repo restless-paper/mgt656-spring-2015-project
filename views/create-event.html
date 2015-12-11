@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block mainContent %}
-
+<div class="eventcreatebg">
   {% if errors %}
     <div>
       <p>Please correct the following errors!</p>
@@ -12,7 +12,8 @@
       </ul>
     </div>
   {% endif %}
-
+<h3>Let Everyone Know Where To Be!</h3>
+<div class="eventcreate">
   <form id="create-event" method="POST">
 	  
   <label for="title">Event title:</label>
@@ -58,12 +59,12 @@
  		<option value='0'>0</option>
  		<option value='30'>30</option>
  	</select>  
-    
+  
     <input type="submit" id="submit">
     
   </form>
-  
-
+</div>
+</div>
 
 {% endblock %}
 
