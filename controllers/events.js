@@ -50,7 +50,18 @@ function listEvents(request, response) {
  * Controller that renders a page for creating new events.
  */
 function newEvent(request, response){
-  var contextData = {};
+  var contextData = {months:['January',
+                              'February',
+                              'March',
+                              'April',
+                              'May',
+                              'June',
+                              'July',
+                              'August',
+                              'September',
+                              'October',
+                              'November',
+                              'December']};
   response.render('create-event.html', contextData);
 }
 
@@ -82,7 +93,7 @@ function saveEvent(request, response){
   }
 
   var year = checkIntRange(request, 'year', 2015, 2016, contextData);
-  var month = checkIntRange(request, 'month', 1, 12, contextData);
+  var month = checkIntRange(request, 'month', 1, 11, contextData);
   var day = checkIntRange(request, 'day', 1, 31, contextData);
   var hour = checkIntRange(request, 'hour', 0, 23, contextData);
   var minutes = checkIntRange(request, 'hour', 0, 59, contextData);
