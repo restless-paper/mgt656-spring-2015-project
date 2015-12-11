@@ -1,12 +1,16 @@
 {% extends "layout.html" %}
 
 {% block mainContent %}
-  <div>
+<div class="eventlistbg">
+  <div class="pad">
+<h3>A Look at What's Happening</h3>
+  <div class="eventlist">
     {% include "fragments/events-list.html" %}
   </div>
   <div>
-    <a href="/events/new">Create a new event</a>
+    <a class="btn btn-primary btn-lg outline" href="/events/new" role="button" id='new'>Create a new event &raquo;</a>
   </div>
-
+</div>
+</div>
 {% endblock %}
 

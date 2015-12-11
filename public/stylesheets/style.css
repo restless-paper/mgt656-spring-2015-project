@@ -66,6 +66,16 @@ height: 700px;
         
 }
 
+.eventlistbg
+{
+background-image: url("http://designbread.com/wp-content/uploads/2012/08/teal_example.jpg");
+background-size: cover;
+width : 100%;
+height: 700px;
+
+}
+
+
 h3
 {
         font-size: 60px;
@@ -73,7 +83,24 @@ h3
         color: white;
 }
 
+h2
+{
+        font-size: 40px;
+}
+
+.eventlist
+{
+    background-color:white;
+    width: 50%;
+}
+
 container { width: 100% }
+
+.aboutbg
+{
+    background-color:#87CEFA;
+    height: 500px;
+}
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -126,4 +153,21 @@ html, body {
 }
 .txt{
 	padding-bottom: 10px;
+}
+
+.aboutpic{
+    float: left; 
+    margin: 0px 100px 15px 15px;
+}
+.aboutpic2{
+    float: left; 
+    margin: 0px 100px 15px 15px;
+}
+.aboutpic3{
+    float: left; 
+    margin: 0px 100px 15px 15px;
+}
+.aboutpic4{
+    float: left; 
+    margin: 0px 100px 15px 15px;
 }
