@@ -5,6 +5,7 @@
 
 
 {% block mainContent %}
+<div class="eventdetailbg">
   <div class='pad'>
   <img id='image' src='{{event.image}}' height='300px'>
     <h1 id='title'>{{event.title}}</h1>
@@ -52,16 +53,17 @@
       </ul>
     </div>
   {% endif %}
-
+<div class="reducewidth">
   <form method="POST">
   	<div class="form-group" id="rsvp">
   		<!-- <label for="exampleInputEmail1">Email address</label> -->
 		<input type="email" class="form-control" name="email" id="email" placeholder="Email">
   	</div>
   	<button type="Submit" class="btn btn-default" id="Submit">Submit</button>
+  	
   </form>
-	  
 	</div>
-
+	</div>
+  </div>
 {% endblock %}
 

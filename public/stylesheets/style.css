@@ -171,3 +171,14 @@ html, body {
     float: left; 
     margin: 0px 100px 15px 15px;
 }
+
+.reducewidth{
+    width: 50%;
+}
+
+.eventdetailbg{
+    background-image: url("http://www.freelargeimages.com/wp-content/uploads/2015/06/White_Background_01.jpg");
+    background-size: cover;
+    width : 100%;
+    height: 800px;
+}
